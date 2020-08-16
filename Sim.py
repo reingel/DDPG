@@ -21,12 +21,10 @@ for episode in range(1000):
     R = 0.0
     s = env.reset()
     for step in range(10000):
-        if np.random.random() < epsilon:
-            a = np.array([np.random.random() * 2.0 - 1.0])
-        else:
-            a = agt(s)
-            a = np.array([a.item()])
-            a = np.clip(a, -1.0, 1.0)
+        a = agt(s)
+        a = np.array([a.item()])
+        a += np.random.randn(1)
+        a = np.clip(a, -1.0, 1.0)
 
         s1, r, done, _ = env.step(a)
 
