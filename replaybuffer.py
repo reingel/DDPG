@@ -2,7 +2,7 @@ import random
 import numpy as np
 from collections import namedtuple
 
-Transition = namedtuple('Transition', ('s', 'a', 'r', 's1'))
+Transition = namedtuple('Transition', ('s', 'a', 'r', 's1', 'done'))
 
 class replay_buffer(object):
     def __init__(self, capacity=10000):
